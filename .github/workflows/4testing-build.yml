@@ -19,6 +19,10 @@ jobs:
     - name: Check out Git repository
       uses: actions/checkout@v4
 
+    - name: Install dependencies
+      run: |
+        apt install -y desktop-file-utils
+
     - name: Build
       run: |
         VERSION=${{ github.event.inputs.version }}
