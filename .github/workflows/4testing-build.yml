@@ -36,7 +36,7 @@ jobs:
         echo $FILENAME > out/filename
         TARGETNAME=`sed "s|.AppImage|-$BUILD_NUMBER.AppImage|g" out/filename`
         
-     - name: Deploy
+    - name: Deploy
       run: |
         #aws s3 cp out/$FILENAME s3://repo-doc-onlyoffice-com/onlyoffice/testing/appimage/$TARGETNAME --acl public-read
         #mkdir -p out/html
