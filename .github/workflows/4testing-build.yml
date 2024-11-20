@@ -21,7 +21,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        sudo apt install -y desktop-file-utils
+        sudo apt install -y desktop-file-utils libfuse2
 
     - name: Build
       run: |
@@ -36,3 +36,9 @@ jobs:
         echo $FILENAME > out/filename
         TARGETNAME=`sed "s|.AppImage|-$BUILD_NUMBER.AppImage|g" out/filename`
         
+     - name: Deploy
+      run: |
+        #aws s3 cp out/$FILENAME s3://repo-doc-onlyoffice-com/onlyoffice/testing/appimage/$TARGETNAME --acl public-read
+        #mkdir -p out/html
+        #echo "<a href=\"https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/onlyoffice/testing/appimage/$TARGETNAME\">$TARGETNAME</a>" > out/html/index.html
+
