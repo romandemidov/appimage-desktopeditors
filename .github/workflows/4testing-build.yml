@@ -22,11 +22,6 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt install -y desktop-file-utils libfuse2
-        #install aws
-        #curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscli.zip"
-        #unzip awscli.zip
-        #sudo ./aws/install
-        aws --version
 
     - name: Build
       run: |
@@ -37,12 +32,13 @@ jobs:
         #get filename with build number
         FILENAME=`ls out | grep .AppImage`
         echo $FILENAME > out/filename
-        TARGETNAME=`sed -r "s/([0-9]+).([0-9]+).([0-9]+)/\1.\2.\3-${BUILD_NUMBER}/" out/filename`
+        sed -i -r "s/([0-9]+).([0-9]+).([0-9]+)/\1.\2.\3-${BUILD_NUMBER}/" out/filename
         cat out/filename
-        aws --version
         
     - name: Deploy
       run: |
+        TARGETNAME=`cat out/filename`
+        echo $TARGETNAME
         #aws s3 cp out/$FILENAME s3://repo-doc-onlyoffice-com/onlyoffice/testing/appimage/$TARGETNAME --acl public-read
         #mkdir -p out/html
         #echo "<a href=\"https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/onlyoffice/testing/appimage/$TARGETNAME\">$TARGETNAME</a>" > out/html/index.html
