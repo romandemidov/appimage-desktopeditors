@@ -22,19 +22,23 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt install -y desktop-file-utils libfuse2
+        #install aws
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscli.zip"
+        unzip awscli.zip
+        sudo ./aws/install
 
     - name: Build
       run: |
         VERSION=${{ github.event.inputs.version }}
         BUILD_NUMBER=${{ github.event.inputs.build }}
         export DESKTOPEDITORS_DEB_URL="https://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/desktop/linux/debian/onlyoffice-desktopeditors_${VERSION}-${BUILD_NUMBER}_amd64.deb"
-
         make clean && make pkg2appimage all
-
+        #get filename with build number
         FILENAME=`ls out | grep .AppImage`
-
         echo $FILENAME > out/filename
-        TARGETNAME=`sed "s|.AppImage|-$BUILD_NUMBER.AppImage|g" out/filename`
+        TARGETNAME=`sed -r "s/([0-9]+).([0-9]+).([0-9]+)/\1.\2.\3-${BUILD_NUMBER}/" out/filename`
+        cat out/filename
+        aws --version
         
     - name: Deploy
       run: |
