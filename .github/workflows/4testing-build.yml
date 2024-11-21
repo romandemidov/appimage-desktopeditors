@@ -38,7 +38,7 @@ jobs:
         #echo $FILENAME > out/filename
         #sed -i -r "s/([0-9]+).([0-9]+).([0-9]+)/\1.\2.\3-${BUILD_NUMBER}/" out/filename
         #cat out/filename
-        env.FILENAME="test1"
+        FILENAME="test1"
         
     - name: Deploy
       run: |
