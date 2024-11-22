@@ -13,8 +13,7 @@ on:
         required: true
 
 env:
-  FILENAME: none
-  TARGETNAME: none
+  NAME: ONLYOFFICE_DesktopEditors-${{ github.event.inputs.version }}-${{ github.event.inputs.build }}.AppImage
 
 jobs:
   build:
@@ -44,10 +43,13 @@ jobs:
         #
         echo $FILENAME
         echo $TARGETNAME
+        #
+        mv out/$FILENAME ./$env.NAME
+        ls -la
         #deploy
-        aws s3 cp out/$FILENAME s3://repo-doc-onlyoffice-com/onlyoffice/testing/appimage/$TARGETNAME --acl public-read
+        #aws s3 cp out/$FILENAME s3://repo-doc-onlyoffice-com/onlyoffice/testing/appimage/$TARGETNAME --acl public-read
         #mkdir -p out/html
         #echo "<a href=\"https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/onlyoffice/testing/appimage/$TARGETNAME\">$TARGETNAME</a>" > out/html/index.html
-        echo "Link: "
-        echo "https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/onlyoffice/testing/appimage/$TARGETNAME"
+        #echo "Link: "
+        #echo "https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/onlyoffice/testing/appimage/$TARGETNAME"
 
