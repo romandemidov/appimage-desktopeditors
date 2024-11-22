@@ -31,25 +31,6 @@ jobs:
         VERSION=${{ github.event.inputs.version }}
         BUILD_NUMBER=${{ github.event.inputs.build }}
         export DESKTOPEDITORS_DEB_URL="https://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/desktop/linux/debian/onlyoffice-desktopeditors_${VERSION}-${BUILD_NUMBER}_amd64.deb"
-        make clean && make pkg2appimage all
-
-    - name: Deploy
-      run: |
-        VERSION=${{ github.event.inputs.version }}
-        BUILD_NUMBER=${{ github.event.inputs.build }}
-        #get filename with build number
-        FILENAME=`ls out | grep .AppImage`
-        TARGETNAME=`echo $FILENAME | sed -r "s/([0-9]+).([0-9]+).([0-9]+)/\1.\2.\3-${BUILD_NUMBER}/"`
-        #
-        echo $FILENAME
-        echo $TARGETNAME
-        #
-        mv out/$FILENAME ./$env.NAME
-        ls -la
-        #deploy
-        #aws s3 cp out/$FILENAME s3://repo-doc-onlyoffice-com/onlyoffice/testing/appimage/$TARGETNAME --acl public-read
-        #mkdir -p out/html
-        #echo "<a href=\"https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/onlyoffice/testing/appimage/$TARGETNAME\">$TARGETNAME</a>" > out/html/index.html
-        #echo "Link: "
-        #echo "https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/onlyoffice/testing/appimage/$TARGETNAME"
+        #make clean && make pkg2appimage all
+        echo $NAME
 
