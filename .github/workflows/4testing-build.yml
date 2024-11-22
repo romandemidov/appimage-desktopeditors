@@ -44,7 +44,7 @@ jobs:
         echo $FILENAME
         echo $TARGETNAME
         #
-        mv out/$FILENAME ./$NAME
+        mv out/$FILENAME ./${NAME}
         ls -la
         #deploy
         #aws s3 cp out/$FILENAME s3://repo-doc-onlyoffice-com/onlyoffice/testing/appimage/$TARGETNAME --acl public-read
@@ -56,6 +56,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: my-artifact
-        path: $NAME
+        path: ./${NAME}
         retention-days: 5
 
