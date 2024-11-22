@@ -53,9 +53,9 @@ jobs:
         #echo "Link: "
         #echo "https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/onlyoffice/testing/appimage/$TARGETNAME"
     - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: my-artifact
-          path: $NAME
-          retention-days: 5
+      uses: actions/upload-artifact@v4
+      with:
+        name: my-artifact
+        path: $NAME
+        retention-days: 5
 
