@@ -12,6 +12,8 @@ on:
         type: string
         required: true
 
+run-name: Build ONLYOFFICE_DesktopEditors-${{ github.event.inputs.version }}-${{ github.event.inputs.build }}
+
 env:
   NAME: ONLYOFFICE_DesktopEditors-${{ github.event.inputs.version }}-${{ github.event.inputs.build }}.AppImage
 
