@@ -57,7 +57,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ${NAME}
+        name: $NAME
         path: ./test.AppImage
         retention-days: 5
 
