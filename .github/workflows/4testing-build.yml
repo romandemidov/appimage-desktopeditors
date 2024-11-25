@@ -55,6 +55,6 @@ jobs:
         #echo "<a href=\"https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/onlyoffice/testing/appimage/$TARGETNAME\">$TARGETNAME</a>" > out/html/index.html
         #echo "Link: "
         #echo "https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/onlyoffice/testing/appimage/$TARGETNAME"
-        echo "::notice file={name},title={title}::<a href=\"https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/onlyoffice/testing/appimage/$TARGETNAME\">$TARGETNAME</a>"
+        echo "::notice title=${NAME}::https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/onlyoffice/testing/appimage/$TARGETNAME"
 
 
