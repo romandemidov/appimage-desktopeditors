@@ -1,4 +1,4 @@
-name: Build and publish APPIMAGE package
+name: Build APPIMAGE package
 
 on:
   workflow_dispatch:
@@ -55,11 +55,6 @@ jobs:
         #echo "<a href=\"https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/onlyoffice/testing/appimage/$TARGETNAME\">$TARGETNAME</a>" > out/html/index.html
         #echo "Link: "
         #echo "https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/onlyoffice/testing/appimage/$TARGETNAME"
+        echo "::notice::Set the Octocat variable"
 
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: ONLYOFFICE_DesktopEditors-${{ github.event.inputs.version }}-${{ github.event.inputs.build }}.AppImage
-        path: ./test.AppImage
-        retention-days: 5
 
