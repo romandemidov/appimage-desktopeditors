@@ -39,7 +39,7 @@ jobs:
         out/$TMPNAME --appimage-extract
         #get AppImageTool
         wget https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
-        appimagetool-x86_64.AppImage out/squashfs-root $TARGETNAME
+        ./appimagetool-x86_64.AppImage out/squashfs-root $TARGETNAME
         ls -la
 
 
