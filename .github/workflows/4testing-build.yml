@@ -42,7 +42,7 @@ jobs:
         wget https://github.com/AppImage/appimagetool/releases/download/continuous/$APPIMAGETOOL
         chmod +x $APPIMAGETOOL
         #rebuild Artifact
-        $APPIMAGETOOL squashfs-root out/$TARGETNAME
+        ./$APPIMAGETOOL squashfs-root out/$TARGETNAME
         rm out/$TMPNAME
         ls -la out/
 
