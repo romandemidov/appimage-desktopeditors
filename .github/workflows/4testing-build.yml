@@ -41,7 +41,9 @@ jobs:
         APPIMAGETOOL=appimagetool-x86_64.AppImage
         wget https://github.com/AppImage/appimagetool/releases/download/continuous/$APPIMAGETOOL
         chmod +x ./$APPIMAGETOOL
-        ./$APPIMAGETOOL out/squashfs-root $TARGETNAME
+        ls -la
+        ls -la ./out
+        ./$APPIMAGETOOL ./out/squashfs-root $TARGETNAME
         ls -la
 
 
