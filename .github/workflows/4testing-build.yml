@@ -38,8 +38,10 @@ jobs:
         mv out/$FILENAME out/$TMPNAME
         out/$TMPNAME --appimage-extract
         #get AppImageTool
-        wget https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
-        ./appimagetool-x86_64.AppImage out/squashfs-root $TARGETNAME
+        APPIMAGETOOL=appimagetool-x86_64.AppImage
+        wget https://github.com/AppImage/appimagetool/releases/download/continuous/$APPIMAGETOOL
+        chmod +x ./$APPIMAGETOOL
+        ./$APPIMAGETOOL out/squashfs-root $TARGETNAME
         ls -la
 
 
