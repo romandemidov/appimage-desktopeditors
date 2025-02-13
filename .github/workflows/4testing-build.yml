@@ -43,7 +43,8 @@ jobs:
         chmod +x ./$APPIMAGETOOL
         ls -la
         ls -la ./out
-        ./$APPIMAGETOOL ./out/squashfs-root $TARGETNAME
+        ./$APPIMAGETOOL squashfs-root out/$TARGETNAME
         ls -la
+        ls -la ./out
 
 
