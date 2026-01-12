@@ -1,7 +1,7 @@
 OUT_DIR:=out/
 APP_DIR:=desktopeditors/
-ARCH=$(uname -m)
-TARGET:=$(OUT_DIR)DesktopEditors-${ARCH}.AppImage
+ARCH:=$(shell uname -m)
+TARGET:=$(OUT_DIR)DesktopEditors-$(ARCH).AppImage
 P2A:=pkg2appimage
 export STATIC_FILES=$(PWD)
 
