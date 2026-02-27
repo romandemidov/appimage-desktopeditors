@@ -17,6 +17,7 @@ ingredients:
     - gstreamer1.0-x
     - freeglut3
     - libc6
+    - libnotify4
   dist: trusty
   script:
     - DESKTOPEDITORS_DEB_URL=${DESKTOPEDITORS_DEB_URL:-"http://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb"}
